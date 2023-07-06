@@ -5,18 +5,31 @@ import com.codeborne.selenide.Configuration;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URI;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class WebStepDefinitions {
 
     @Given("unathorized user opened the site")
-    public void openUrl() {
+    public void openUrl() throws MalformedURLException {
         Configuration.timeout = 6000;
         Configuration.browser = "chrome";
+
+        ChromeOptions options = new ChromeOptions();
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(
+                URI.create("http://localhost:4444/wd/hub").toURL(), options
+        );
+        setWebDriver(remoteWebDriver);
+
         Configuration.baseUrl = "https://podberi-sobaku.ru";
-        Configuration.pageLoadStrategy= "eager";
+        //Configuration.pageLoadStrategy= "eager";
         open("/");
     }
 
