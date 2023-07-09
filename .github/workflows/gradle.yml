@@ -1,8 +1,10 @@
 name: Build + tests
 
 on:
+  push:
+    branches: ["master", "attestation3"]
   pull_request:
-    branches: ["master", "one"]
+    branches: ["master"]
 
 permissions:
   contents: read
