@@ -20,12 +20,12 @@ on:
         description: "Browser for tests"
         required: true
         default: chrome
-      ALLURE_JOB_RUN_ID:
-        description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
-        required: false
-      ALLURE_USERNAME:
-        description: "ALLURE_USERNAME service parameter. Leave blank"
-        required: false
+#      ALLURE_JOB_RUN_ID:
+#        description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
+#        required: false
+#      ALLURE_USERNAME:
+#        description: "ALLURE_USERNAME service parameter. Leave blank"
+#        required: false
   pull_request:
     branches: [ "master" ]
 
@@ -54,7 +54,7 @@ jobs:
         distribution: 'temurin'
     - name: Start Selenoid
       uses: Xotabu4/selenoid-github-action@v2
-    - name: install and configure allurectl
+#    - name: install and configure allurectl
 #      uses: allure-framework/setup-allurectl@v1
 #      with:
 #        allure-endpoint: https://innopolis.qatools.cloud
