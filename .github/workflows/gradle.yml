@@ -2,7 +2,7 @@ name: Build + tests
 
 on:
   push:
-    branches: ["master", "attestation3"]
+    branches: ["master", "one"]
   pull_request:
     branches: ["master"]
 
